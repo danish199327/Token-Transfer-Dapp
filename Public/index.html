@@ -1,1 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Asset Transfer DApp</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh; /* Ensure body takes up at least the full viewport height */
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            padding: 20px;
+            margin: 0; /* Remove default margin */
+        }
+        h1 {
+            color: #333;
+            cursor: pointer; /* Add cursor pointer to make heading clickable */
+        }
+        .btn {
+            background-color: #4CAF50; /* Green */
+            border: none;
+            color: white;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            transition-duration: 0.4s;
+            cursor: pointer;
+            border-radius: 8px;
+        }
+        .btn:hover {
+            background-color: #45a049;
+        }
+        .spacer {
+            margin-bottom: 20px; /* Adjust the spacing as needed */
+        }
+        footer {
+            margin-top: auto; /* Push footer to the bottom */
+            text-align: center;
+            padding: 10px; /* Add some padding for better appearance */
+            background-color: #333; /* Add background color */
+            color: white; /* Text color */
+        }
+    </style>
+</head>
+<body>
+    <h1 onclick="toggleDisplay()">Asset Transfer DApp</h1>
 
+    <div id="app" style="display: none;">
+        <div>
+            <button class="btn" onclick="getAssetOwner()">Asset Owner</button><br>
+            <div id="assetOwner" style="display: none;">Asset Owner Address: <span id="assetOwnerAddress"></span></div>
+        </div>
+        <div class="spacer"></div> <!-- Line space added here -->
+        <div class="input-group">
+            <label for="recipient">Recipient Address:</label><br>
+            <input type="text" id="recipient" /><br>
+        </div>
+        <div class="input-group">
+            <label for="amount">Amount:</label><br>
+            <input type="number" id="amount" /><br>
+        </div>
+        <div>
+            <button class="btn" onclick="transferTokens()">Transfer Tokens</button><br>
+        </div>
+        <div class="spacer"></div> <!-- Line space added here -->
+        <div class="input-group">
+            <label for="checkAddress">Check Balance of Address:</label><br>
+            <input type="text" id="checkAddress" />
+            <button class="btn" onclick="checkBalance()">Check Balance</button><br>
+        </div>
+
+        <div id="result"></div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/web3@1.5.3/dist/web3.min.js"></script>
+    <script src="script.js"></script>
+
+    <script>
+        function toggleDisplay() {
+            var appDiv = document.getElementById("app");
+            if (appDiv.style.display === "none") {
+                appDiv.style.display = "block";
+            } else {
+                appDiv.style.display = "none";
+            }
+        }
+    </script>
+</body>
+</html>
